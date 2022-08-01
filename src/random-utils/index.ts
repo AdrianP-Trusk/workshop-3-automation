@@ -1,7 +1,7 @@
-import generateRandomDigits from './generateRandomDigits';
+import generateRandomDigits from './generateRandomDigits'
 
 const randomUtils = {
   generateRandomDigits,
-};
+}
 
-export default randomUtils;
+export default randomUtils

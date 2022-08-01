@@ -1,12 +1,15 @@
 module.exports = {
   env: {
-    es2021: true,
-    node: true,
+    'es2021': true,
     'jest/globals': true,
+    'node': true,
   },
   extends: [
-    'airbnb-base',
+    'google',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
   ],
+  ignorePatterns: ['dist/*'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -14,9 +17,24 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
+    'cucumber',
+    'import',
     'jest',
   ],
   rules: {
-    'max-len': ['error', 150],
+    'camelcase': 'off',
+    'import/order': ['error', { 'alphabetize': { order: 'asc' }, 'groups': ['builtin', 'external', 'internal'], 'newlines-between': 'always' }],
+    'indent': ['error', 2],
+    'key-spacing': ['error', { afterColon: true }],
+    'keyword-spacing': ['error', { after: true }],
+    'linebreak-style': ['error', 'unix'],
+    'max-len': 'off',
+    'new-cap': 'off',
+    'object-curly-spacing': ['error', 'always'],
+    'quotes': ['error', 'single'],
+    'require-jsdoc': 'off',
+    'semi': ['error', 'never'],
+    'no-invalid-this': 'off',
+    '@typescript-eslint/no-invalid-this': ['error'],
   },
-};
+}

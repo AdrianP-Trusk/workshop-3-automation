@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
 type EnvironmentConfig = {
   truskApiBaseUrl: string
@@ -10,6 +10,6 @@ type EnvironmentConfig = {
 const environment: EnvironmentConfig = {
   truskApiBaseUrl: process.env.TRUSK_API_BASE_URL as string,
   truskBusinessBaseUrl: process.env.TRUSK_BUSINESS_BASE_URL as string,
-};
+}
 
-export default environment;
+export default environment

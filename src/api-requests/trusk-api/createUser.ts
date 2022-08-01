@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios'
 
-import environment from '../../environment';
+import environment from '../../environment'
 
 type CreateUserPayload = {
   completeName: string
@@ -21,6 +21,6 @@ const createUser = async (userPayload: CreateUserPayload): Promise<AxiosResponse
       'Content-Type': 'application/json',
     },
   },
-);
+)
 
-export default createUser;
+export default createUser

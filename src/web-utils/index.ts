@@ -1,7 +1,7 @@
-import waitForElementToBePresentBySelector from './waitForElementToBePresentBySelector';
+import waitForElementToBePresentBySelector from './waitForElementToBePresentBySelector'
 
 const webUtils = {
   waitForElementToBePresentBySelector,
-};
+}
 
-export default webUtils;
+export default webUtils

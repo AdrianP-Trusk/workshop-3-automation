@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios'
 
-import environment from '../../environment';
+import environment from '../../environment'
 
 type LoginPayload = {
   email: string
@@ -15,6 +15,6 @@ const login = async (loginPayload: LoginPayload): Promise<AxiosResponse> => axio
       'Content-Type': 'application/json',
     },
   },
-);
+)
 
-export default login;
+export default login
