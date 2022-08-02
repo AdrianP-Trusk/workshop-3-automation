@@ -13,14 +13,18 @@ type CreateUserPayload = {
   }
 }
 
-const createUser = async (userPayload: CreateUserPayload): Promise<AxiosResponse> => axios.put(
-  `${environment.truskApiBaseUrl}/user`,
-  userPayload,
-  {
-    headers: {
-      'Content-Type': 'application/json',
+const createUser = async (userPayload: CreateUserPayload): Promise<AxiosResponse> => {
+  const url = `${environment.truskApiBaseUrl}/user`
+  console.log('Send create user request with url', url)
+  return axios.put(
+    url,
+    userPayload,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
-  },
-)
+  )
+}
 
 export default createUser
