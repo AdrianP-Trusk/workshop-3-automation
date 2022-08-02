@@ -30,7 +30,7 @@ describe('Workshop Test Scenario', () => {
       capabilities: {
         browserName: 'chrome',
         chromeOptions: {
-          args: ['--disable-infobars', '--window-size=1920,1440', '--disable-gpu'],
+          args: ['--disable-infobars', '--window-size=1920,1440'],
         },
       },
     })
