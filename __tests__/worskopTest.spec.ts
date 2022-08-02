@@ -34,7 +34,7 @@ describe('Workshop Test Scenario', () => {
         },
       },
     })
-  })
+  }, 10000)
 
   afterAll(async () => {
     await webdriver.deleteSession()
