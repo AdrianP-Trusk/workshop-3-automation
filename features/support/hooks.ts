@@ -7,9 +7,6 @@ Before({ tags: '@webdriver' }, async function(this: CustomWorld) {
   this.browser = await remote({
     capabilities: {
       browserName: 'chrome',
-      chromeOptions: {
-        args: ['--disable-infobars', '--window-size=1920,1440'],
-      },
     },
   })
 })

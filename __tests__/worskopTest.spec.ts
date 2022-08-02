@@ -29,9 +29,6 @@ describe('Workshop Test Scenario', () => {
     webdriver = await remote({
       capabilities: {
         browserName: 'chrome',
-        chromeOptions: {
-          args: ['--disable-infobars', '--window-size=1920,1440'],
-        },
       },
     })
   }, 10000)
