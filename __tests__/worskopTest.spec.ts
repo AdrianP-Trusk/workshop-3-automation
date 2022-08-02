@@ -52,7 +52,7 @@ describe('Workshop Test Scenario', () => {
       },
     })
     expect(createUserResponse.status).toBe(201)
-  })
+  }, 10000)
 
   it('Login the test b2b account using Trusk APi and catch the auth token', async () => {
     const loginResponse = await truskApi.login({
@@ -62,11 +62,11 @@ describe('Workshop Test Scenario', () => {
     expect(loginResponse.status).toBe(200)
     expect(loginResponse.data.token).toStrictEqual(expect.any(String))
     testUserAuthToken = loginResponse.data.token
-  })
+  }, 10000)
 
   it('Open Trusk Business', async () => {
     await webdriver.navigateTo(environment.truskBusinessBaseUrl)
-  })
+  }, 10000)
 
   it('Set Cookie token = previous auth token', async () => {
     await webdriver.setCookies({
@@ -74,7 +74,7 @@ describe('Workshop Test Scenario', () => {
       value: testUserAuthToken,
     })
     await webdriver.navigateTo(environment.truskBusinessBaseUrl)
-  })
+  }, 10000)
 
   it('Quote form is displayed on Trusk Business', async () => {
     const currentUrl = await webdriver.getUrl()
@@ -83,7 +83,7 @@ describe('Workshop Test Scenario', () => {
       webdriver,
       truskBusiness.quoteForm.startAddressInputXPath,
     )
-  })
+  }, 10000)
 
   it('Fill the quote form', async () => {
     await truskBusiness.quoteForm.fillStartAddressInput(webdriver, '66 rue du couedic')
@@ -105,17 +105,17 @@ describe('Workshop Test Scenario', () => {
 
   it('Spy PUT Order Trusk API', async () => {
     putOrderSpy = await webdriver.mock(`${environment.truskApiBaseUrl}/order`, { method: 'put' })
-  })
+  }, 10000)
 
   it('Submit quote form on Trusk Business', async () => {
     await truskBusiness.quoteForm.submitForm(webdriver)
-  })
+  }, 10000)
 
   it('Order created panel appears', async () => {
     await truskBusiness.quoteForm.waitForOrderCreatedPanelToBeVisible(webdriver)
-  })
+  }, 10000)
 
   it('PUT Order Trusk API called once', () => {
     expect(putOrderSpy.calls.length).toBe(1)
-  })
+  }, 10000)
 })
