@@ -25,7 +25,8 @@ jobs:
           command: npm run tsc
       - run:
           name: Prepare sample .env file
-          command: echo "TRUSK_API_BASE_URL=https://staging-01-api.trusk.com\nTRUSK_BUSINESS_BASE_URL=https://staging-01-pro.trusk.com" > .env
+          command: touch .env \
+            echo "TRUSK_API_BASE_URL=https://staging-01-api.trusk.com\nTRUSK_BUSINESS_BASE_URL=https://staging-01-pro.trusk.com" > .env
       - run:
           name: Test (Jest)
           command: npx jest
