@@ -5,7 +5,12 @@ import { CustomWorld } from './world'
 
 Before({ tags: '@webdriver' }, async function(this: CustomWorld) {
   this.browser = await remote({
-    capabilities: { browserName: 'chrome' },
+    capabilities: {
+      browserName: 'chrome',
+      chromeOptions: {
+        args: ['--disable-infobars', '--window-size=1920,1440', '--disable-gpu'],
+      },
+    },
   })
 })
 
