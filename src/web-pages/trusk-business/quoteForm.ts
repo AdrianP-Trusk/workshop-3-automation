@@ -96,6 +96,13 @@ const fillEndContactPhoneNumber = async (browser: WebdriverIO.Browser, phoneNumb
 
 const submitForm = async (browser: WebdriverIO.Browser): Promise<void> => {
   const submitButtonTarget = await webUtils.waitForElementToBePresentBySelector(browser, submitButtonXPath)
+  // TODO: wait for button background color to be rgb(0, 12, 166)
+  await browser.waitUntil(async (): Promise<boolean> => {
+    const submitButtonTarget = await webUtils.waitForElementToBePresentBySelector(browser, submitButtonXPath)
+    const buttonBackgroundColor = await submitButtonTarget.getCSSProperty('background-color')
+    console.log('Couleur du boutton', buttonBackgroundColor.parsed.rgb)
+    return buttonBackgroundColor.parsed.rgb === 'rgb(0,12,166)'
+  }, { timeout: 2000 })
   await submitButtonTarget.click()
 }
 

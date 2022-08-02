@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:jessie-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install Node Modules
+          command: npm install
+      - run:
+          name: Execute ESlint Check
+          command: npm run lint
+      - run:
+          name: Execute TSC Check
+          command: npm run tsc
+      - run:
+          name: Test (Jest)
+          command: npx jest
+      - run:
+          name: Test (Cucumber)
+          command: npx cucumber-js
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
